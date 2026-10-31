@@ -1,0 +1,454 @@
+/* =========================================================
+   EXPLORE UGANDA - MAIN STYLESHEET (css/style.css)
+   One external stylesheet used by every HTML page.
+   TIP: Change the colours in :root below to re-theme the whole site.
+   ========================================================= */
+
+/* ---------- 1. CSS VARIABLES (colours, fonts, spacing) ---------- */
+:root {
+  --green: #1f5e3a;        /* Deep forest green - primary colour */
+  --green-dark: #143f27;
+  --green-light: #e8f1ea;
+  --gold: #f2b705;         /* Warm golden yellow - accent colour */
+  --gold-dark: #d29d00;
+  --brown: #8b5a2b;        /* Earthy brown */
+  --white: #ffffff;
+  --cream: #faf7f0;        /* Soft light background */
+  --charcoal: #222622;     /* Main text colour */
+  --grey: #5d655f;         /* Secondary text */
+  --border: #e3e0d6;
+
+  --font-heading: "Playfair Display", Georgia, serif;
+  --font-body: "Lato", "Segoe UI", Arial, sans-serif;
+
+  --radius: 12px;
+  --shadow: 0 8px 24px rgba(20, 40, 25, 0.10);
+  --shadow-hover: 0 14px 34px rgba(20, 40, 25, 0.18);
+  --max-width: 1180px;
+}
+
+/* ---------- 2. GLOBAL STYLES ---------- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--charcoal);
+  background-color: var(--white);
+  line-height: 1.7;
+  font-size: 17px;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: var(--green); text-decoration: none; }
+a:hover { color: var(--brown); }
+
+ul, ol { padding-left: 1.3rem; }
+li { margin-bottom: 0.4rem; }
+
+/* Centered content wrapper used on every page */
+.container {
+  width: 90%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* ---------- 3. TYPOGRAPHY ---------- */
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  line-height: 1.25;
+  color: var(--green-dark);
+}
+h1 { font-size: 3.2rem; }
+h2 { font-size: 2.3rem; margin-bottom: 1rem; }
+h3 { font-size: 1.35rem; margin-bottom: 0.5rem; }
+p  { margin-bottom: 1rem; }
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brown);
+  margin-bottom: 0.6rem;
+}
+
+.section { padding: 80px 0; }
+.section-alt { background-color: var(--cream); }
+.section-title { text-align: center; max-width: 720px; margin: 0 auto 3rem; }
+.section-title p { color: var(--grey); }
+
+/* ---------- 4. HEADER & NAVIGATION ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--white);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--green-dark);
+}
+.logo img { width: 42px; height: 42px; }
+.logo span { color: var(--gold-dark); }
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 4px;
+  padding: 0;
+}
+.nav-links li { margin: 0; }
+.nav-links a {
+  display: block;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--charcoal);
+  transition: background-color 0.25s, color 0.25s;
+}
+.nav-links a:hover { background-color: var(--green-light); color: var(--green); }
+.nav-links a.active { background-color: var(--green); color: var(--white); }
+
+/* Hamburger button (only visible on small screens) */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: 2px solid var(--green);
+  color: var(--green);
+  border-radius: 8px;
+  font-size: 1.4rem;
+  padding: 2px 12px;
+  cursor: pointer;
+}
+
+/* ---------- 5. BUTTONS ---------- */
+.btn {
+  display: inline-block;
+  padding: 13px 28px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.25s, color 0.25s, box-shadow 0.25s;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+.btn-primary { background-color: var(--gold); color: var(--charcoal); }
+.btn-primary:hover { background-color: var(--gold-dark); color: var(--charcoal); }
+.btn-outline { border-color: var(--white); color: var(--white); }
+.btn-outline:hover { background-color: var(--white); color: var(--green-dark); }
+.btn-green { background-color: var(--green); color: var(--white); }
+.btn-green:hover { background-color: var(--green-dark); color: var(--white); }
+.btn-small { padding: 8px 18px; font-size: 0.85rem; }
+
+/* ---------- 6. HERO SECTION ---------- */
+.hero {
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+  color: var(--white);
+  background:
+    linear-gradient(90deg, rgba(10, 30, 18, 0.82) 0%, rgba(10, 30, 18, 0.35) 70%),
+    url("../images/murchison-falls.jpg") center / cover no-repeat;
+}
+.hero-content { max-width: 640px; }
+.hero h1 { color: var(--white); font-size: 4rem; margin-bottom: 1.2rem; }
+.hero h1 em { color: var(--gold); font-style: italic; }
+.hero p { font-size: 1.2rem; opacity: 0.92; margin-bottom: 2rem; }
+.hero .eyebrow { color: var(--gold); }
+.hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
+
+/* Smaller banner used at the top of inner pages */
+.page-banner {
+  padding: 110px 0 90px;
+  color: var(--white);
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+}
+.page-banner h1 { color: var(--white); }
+.page-banner p { max-width: 640px; margin: 1rem auto 0; font-size: 1.15rem; opacity: 0.92; }
+.page-banner .eyebrow { color: var(--gold); }
+.banner-about   { background-image: linear-gradient(rgba(10,30,18,.65), rgba(10,30,18,.65)), url("../images/lake-bunyonyi.jpg"); }
+.banner-dest    { background-image: linear-gradient(rgba(10,30,18,.65), rgba(10,30,18,.65)), url("../images/queen-elizabeth.jpg"); }
+.banner-culture { background-image: linear-gradient(rgba(10,30,18,.65), rgba(10,30,18,.65)), url("../images/cultural-dance.jpg"); }
+.banner-gallery { background-image: linear-gradient(rgba(10,30,18,.65), rgba(10,30,18,.65)), url("../images/rwenzori.jpg"); }
+.banner-guide   { background-image: linear-gradient(rgba(10,30,18,.65), rgba(10,30,18,.65)), url("../images/source-of-nile.jpg"); }
+.banner-contact { background-image: linear-gradient(rgba(10,30,18,.65), rgba(10,30,18,.65)), url("../images/bwindi-gorilla.jpg"); }
+
+/* ---------- 7. FLEXBOX LAYOUTS ---------- */
+.split {
+  display: flex;
+  align-items: center;
+  gap: 56px;
+}
+.split > * { flex: 1; }
+.split img { border-radius: var(--radius); box-shadow: var(--shadow); aspect-ratio: 4 / 3; object-fit: cover; width: 100%; }
+.split.reverse { flex-direction: row-reverse; }
+
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+}
+.card-grid > * { flex: 1 1 320px; }
+
+/* ---------- 8. DESTINATION CARDS ---------- */
+.card {
+  background-color: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
+.card img { width: 100%; height: 230px; object-fit: cover; transition: transform 0.5s; }
+.card-image { overflow: hidden; }
+.card:hover img { transform: scale(1.05); }
+.card-body { padding: 24px; display: flex; flex-direction: column; flex: 1; }
+.card-body p { color: var(--grey); font-size: 0.97rem; }
+.card-body .btn { margin-top: auto; align-self: flex-start; }
+.location { font-size: 0.85rem; font-weight: 700; color: var(--brown); margin-bottom: 0.5rem; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; padding: 0; margin-bottom: 1.2rem; }
+.tags li {
+  margin: 0;
+  font-size: 0.78rem;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background-color: var(--green-light);
+  color: var(--green-dark);
+  font-weight: 700;
+}
+
+/* ---------- 9. EXPERIENCE / FEATURE BOXES ---------- */
+.feature {
+  background-color: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 30px;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.feature:hover { border-color: var(--gold); transform: translateY(-4px); }
+.feature .icon {
+  width: 56px; height: 56px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background-color: var(--green-light);
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+.feature p { color: var(--grey); margin: 0; }
+
+/* Highlights / facts strip */
+.highlights { background-color: var(--green-dark); color: var(--white); }
+.highlights h2, .highlights h3 { color: var(--white); }
+.highlights .section-title p { color: rgba(255, 255, 255, 0.8); }
+.stats { display: flex; flex-wrap: wrap; gap: 24px; }
+.stat {
+  flex: 1 1 200px;
+  text-align: center;
+  padding: 28px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius);
+}
+.stat strong { display: block; font-family: var(--font-heading); font-size: 2.6rem; color: var(--gold); }
+.stat span { font-size: 0.95rem; opacity: 0.85; }
+
+/* Mission / vision boxes */
+.info-box {
+  background-color: var(--white);
+  border-left: 5px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+
+/* Category headings on destinations page */
+.category-heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 3rem 0 1.6rem;
+}
+.category-heading::after { content: ""; flex: 1; height: 2px; background-color: var(--border); }
+.category-heading h2 { margin: 0; }
+
+/* ---------- 10. IMAGE GALLERY ---------- */
+.gallery-filters { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 2rem; }
+.filter-btn {
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 2px solid var(--green);
+  background-color: var(--white);
+  color: var(--green);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.25s, color 0.25s;
+}
+.filter-btn:hover, .filter-btn.active { background-color: var(--green); color: var(--white); }
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+.gallery figure {
+  flex: 1 1 300px;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.gallery img { width: 100%; height: 280px; object-fit: cover; transition: transform 0.5s; }
+.gallery figure:hover img { transform: scale(1.08); }
+.gallery figcaption {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 16px;
+  color: var(--white);
+  font-weight: 700;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
+}
+.gallery figure.hidden { display: none; }
+
+/* ---------- 11. TABLES ---------- */
+.table-wrapper { overflow-x: auto; border-radius: var(--radius); box-shadow: var(--shadow); }
+table { width: 100%; border-collapse: collapse; background-color: var(--white); min-width: 560px; }
+caption { caption-side: top; text-align: left; font-weight: 700; padding: 0 0 10px; color: var(--grey); }
+th, td { padding: 14px 18px; text-align: left; border-bottom: 1px solid var(--border); }
+thead th { background-color: var(--green); color: var(--white); }
+tbody tr:nth-child(even) { background-color: var(--cream); }
+tbody tr:hover { background-color: var(--green-light); }
+
+/* ---------- 12. RESPONSIVE IFRAME (video / map) ---------- */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.video-wrapper iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+/* ---------- 13. FORMS ---------- */
+.contact-layout { display: flex; gap: 48px; align-items: flex-start; }
+.contact-info { flex: 1; }
+.contact-form {
+  flex: 1.6;
+  background-color: var(--white);
+  padding: 36px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.form-row { display: flex; gap: 20px; }
+.form-row > .form-group { flex: 1; }
+.form-group { margin-bottom: 20px; }
+.form-group > label, fieldset legend { display: block; font-weight: 700; margin-bottom: 6px; }
+input[type="text"], input[type="email"], input[type="date"], select, textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font: inherit;
+  background-color: var(--cream);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(31, 94, 58, 0.15);
+}
+fieldset { border: none; margin-bottom: 20px; }
+.options { display: flex; flex-wrap: wrap; gap: 10px 22px; }
+.options label { display: flex; align-items: center; gap: 6px; font-weight: 400; cursor: pointer; }
+.options input { accent-color: var(--green); width: 18px; height: 18px; }
+.form-message {
+  display: none;
+  margin-top: 16px;
+  padding: 14px;
+  border-radius: 8px;
+  background-color: var(--green-light);
+  color: var(--green-dark);
+  font-weight: 700;
+}
+.form-message.show { display: block; }
+
+/* ---------- 14. FOOTER ---------- */
+.site-footer { background-color: var(--charcoal); color: rgba(255, 255, 255, 0.78); padding: 64px 0 0; }
+.footer-grid { display: flex; flex-wrap: wrap; gap: 40px; }
+.footer-grid > div { flex: 1 1 220px; }
+.site-footer h4 { color: var(--white); font-size: 1.1rem; margin-bottom: 1rem; }
+.site-footer .logo { color: var(--white); margin-bottom: 1rem; }
+.site-footer ul { list-style: none; padding: 0; }
+.site-footer a { color: rgba(255, 255, 255, 0.78); }
+.site-footer a:hover { color: var(--gold); }
+.social { display: flex; gap: 10px; flex-wrap: wrap; }
+.social a {
+  padding: 6px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+.social a:hover { border-color: var(--gold); }
+.copyright {
+  margin-top: 48px;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* ---------- 15. RESPONSIVE MEDIA QUERIES ---------- */
+
+/* Tablets (up to 992px wide) */
+@media (max-width: 992px) {
+  h1, .hero h1 { font-size: 2.8rem; }
+  h2 { font-size: 2rem; }
+  .split, .split.reverse, .contact-layout { flex-direction: column; gap: 32px; }
+  .menu-toggle { display: block; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 76px; left: 0; right: 0;
+    flex-direction: column;
+    background-color: var(--white);
+    padding: 12px 5%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  }
+  .nav-links.open { display: flex; }
+}
+
+/* Mobile phones (up to 600px wide) */
+@media (max-width: 600px) {
+  body { font-size: 16px; }
+  h1, .hero h1 { font-size: 2.2rem; }
+  h2 { font-size: 1.7rem; }
+  .section { padding: 56px 0; }
+  .hero { min-height: 78vh; }
+  .form-row { flex-direction: column; gap: 0; }
+  .contact-form { padding: 24px; }
+  .gallery img { height: 230px; }
+  .hero-buttons .btn { width: 100%; text-align: center; }
+}
