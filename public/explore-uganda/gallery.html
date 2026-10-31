@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic page information -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Photo gallery of Uganda's wildlife, national parks, mountains, lakes, culture and food.">
+  <title>Gallery | Explore Uganda</title>
+  <!-- Favicon (small icon in the browser tab) -->
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <!-- One external stylesheet shared by every page -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== HEADER & NAVIGATION ===== -->
+  <header class="site-header">
+    <div class="container nav-bar">
+      <a href="index.html" class="logo"><img src="images/favicon.svg" alt="Explore Uganda logo" width="42" height="42"> Explore <span>Uganda</span></a>
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+      <nav aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="destinations.html">Destinations</a></li>
+          <li><a href="culture.html">Culture</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="travel-guide.html">Travel Guide</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main>
+    <!-- Page banner -->
+    <section class="page-banner banner-gallery">
+      <div class="container">
+        <span class="eyebrow">Photo Gallery</span>
+        <h1>Uganda in Pictures</h1>
+        <p>Wildlife, parks, mountains, waterfalls, lakes, culture and food.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <!-- Filter buttons (handled by js/script.js) -->
+        <div class="gallery-filters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="wildlife">Wildlife &amp; Parks</button>
+          <button class="filter-btn" data-filter="mountains">Mountains</button>
+          <button class="filter-btn" data-filter="water">Waterfalls &amp; Lakes</button>
+          <button class="filter-btn" data-filter="culture">Culture &amp; Food</button>
+        </div>
+        <div class="gallery">
+          <figure data-category="wildlife">
+            <img src="images/bwindi-gorilla.jpg" alt="Silverback mountain gorilla sitting in Bwindi forest" loading="lazy">
+            <figcaption>Mountain gorilla, Bwindi</figcaption>
+          </figure>
+          <figure data-category="wildlife">
+            <img src="images/queen-elizabeth.jpg" alt="Lion lying on a tree branch with elephants in the background" loading="lazy">
+            <figcaption>Tree-climbing lion, Queen Elizabeth</figcaption>
+          </figure>
+          <figure data-category="water">
+            <img src="images/murchison-falls.jpg" alt="Murchison Falls pouring through a rocky gorge at sunset" loading="lazy">
+            <figcaption>Murchison Falls</figcaption>
+          </figure>
+          <figure data-category="water">
+            <img src="images/lake-bunyonyi.jpg" alt="Islands and a canoe on Lake Bunyonyi" loading="lazy">
+            <figcaption>Lake Bunyonyi</figcaption>
+          </figure>
+          <figure data-category="mountains">
+            <img src="images/rwenzori.jpg" alt="Glaciers on the Rwenzori Mountains above giant lobelias" loading="lazy">
+            <figcaption>Rwenzori Mountains</figcaption>
+          </figure>
+          <figure data-category="water">
+            <img src="images/source-of-nile.jpg" alt="Tourists rafting white water on the Nile at Jinja" loading="lazy">
+            <figcaption>Rafting at the Source of the Nile</figcaption>
+          </figure>
+          <figure data-category="culture">
+            <img src="images/cultural-dance.jpg" alt="Dancers in colourful skirts performing to drums" loading="lazy">
+            <figcaption>Traditional dance performance</figcaption>
+          </figure>
+          <figure data-category="culture">
+            <img src="images/ugandan-food.jpg" alt="Plates of matooke, luwombo, groundnut sauce and rolex" loading="lazy">
+            <figcaption>Traditional Ugandan foods</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="index.html" class="logo"><img src="images/favicon.svg" alt="Explore Uganda logo" width="42" height="42"> Explore <span>Uganda</span></a>
+        <p>Discover the Pearl of Africa &ndash; wildlife, culture, adventure and warm hospitality.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="destinations.html">Destinations</a></li>
+          <li><a href="culture.html">Culture</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="travel-guide.html">Travel Guide</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact Us</h4>
+        <ul>
+          <li>Plot 12, Kampala Road, Kampala</li>
+          <li>Phone: <a href="tel:+256700000000">+256 700 000 000</a></li>
+          <li>Email: <a href="mailto:info@exploreuganda.ug">info@exploreuganda.ug</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Follow Us</h4>
+        <div class="social">
+          <a href="https://www.facebook.com" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.instagram.com" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.x.com" target="_blank" rel="noopener">X</a>
+          <a href="https://www.youtube.com" target="_blank" rel="noopener">YouTube</a>
+        </div>
+      </div>
+    </div>
+    <p class="copyright">&copy; <span class="year">2026</span> Explore Uganda. Created by Sentamu Bramah &ndash; HCT 3102 Internet and Web Design, Kyambogo University.</p>
+  </footer>
+
+  <!-- JavaScript file (loaded at the end so the page appears first) -->
+  <script src="js/script.js"></script>
+</body>
+</html>
