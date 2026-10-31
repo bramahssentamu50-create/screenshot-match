@@ -1,24 +1,24 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect } from "react";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+// The Explore Uganda site is plain HTML/CSS/JS in public/explore-uganda/.
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Explore Uganda | Discover the Pearl of Africa" },
+      { name: "description", content: "Tourism website for Uganda's parks, wildlife and culture." },
+      { property: "og:title", content: "Explore Uganda" },
+      { property: "og:description", content: "Discover the Pearl of Africa." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
+  useEffect(() => {
+    window.location.replace("/explore-uganda/index.html");
+  }, []);
+  return <p style={{ padding: 24 }}>Loading Explore Uganda…</p>;
 }
